@@ -21,8 +21,8 @@ public class JDBCExample2{
 
 			//DB Connect
 			connection = DriverManager.getConnection(
-					"jdbc:mariadb://localhost:3306/management", "root", "****"); 
-						
+					"jdbc:mariadb://localhost:3306/management", "root", "1234"); 
+
 		    System.out.print("ID : ");
 		    String ID   = sc.nextLine();
 		    
@@ -32,17 +32,18 @@ public class JDBCExample2{
 		    System.out.print("Name : ");
 		    String name = sc.nextLine();
 		    
-		    System.out.print("Phone : ");
-		    String phone = sc.nextLine();
+		    System.out.print("Address : ");
+		    String address = sc.nextLine();
 		    
 		    stml = (Statement)connection.createStatement(); 
             
 		    // if insert Success = 1 return 
+
 	        int r = stml.executeUpdate("insert into members " +
-                      "(cloum_ID,cloum_PW,cloum_Name,cloum_Phone) value ('" +
-                      ID + "','" + Pw + "','" + name + "'," + phone + ")" );
+                    "(C_ID,C_PW,C_Name,C_Address) value ('" +
+                    ID + "','" + Pw + "','" + name + "'," + address + ")" );
 		    
-		    if(r == 1){
+	        if(r == 1){
 		    	System.out.println("success");
 		    }else {
 		      System.out.println("failure");

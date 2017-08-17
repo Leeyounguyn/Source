@@ -19,24 +19,25 @@ public class JDBCExample1 {
 
 			//DB Connect
 			connection = DriverManager.getConnection(
-					"jdbc:mariadb://localhost:3306/management", "root", "*****"); 
+					"jdbc:mariadb://localhost:3306/management", "root", "1234"); 
 			//How to connect with DB : jdbc: DBName://ip address port number , rootID , pw; 
 			
 			//select syntax execute
 			stml = connection.createStatement();  
 
-			ResultSet rs = stml.executeQuery("select cloum_ID, cloum_PW, cloum_Name, cloum_Phone from members");
+			ResultSet rs = stml.executeQuery("select C_ID, C_PW, C_Name, C_Address from members");
 			
-				System.out.println("ID      PW          Name         Phone");
-				System.out.println("================================================");
+				System.out.println("ID      PW          Name      Address");
+				System.out.println("======================================================");
 				//Execute the result of select syntax 
 				while(rs.next()){
-					String b_ID    = rs.getString("cloum_ID");
-					String b_Pw    = rs.getString("cloum_PW");
-					String b_Name  = rs.getString("cloum_Name");
-					String b_phone = rs.getString("cloum_Phone");
+					String b_ID    = rs.getString("C_ID");
+					String b_Pw    = rs.getString("C_PW");
+					String b_Name  = rs.getString("C_Name");
+					String b_address = rs.getString("C_Address");
 				
-					System.out.printf("%5s  %5s  %5s  %5s \n", b_ID, b_Pw, b_Name, b_phone);	
+					System.out.printf("%s    %6s    %5s       %5s\n", b_ID, b_Pw, b_Name, b_address);	
+					
 				}
 		
 		}catch(ClassNotFoundException | SQLException e){

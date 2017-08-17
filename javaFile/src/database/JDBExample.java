@@ -25,7 +25,7 @@ public class JDBExample {
 			//
 			ResultSet rs = stml.executeQuery("select cloum_ID, cloum_PW, cloum_Name, cloum_Phone from members");
 			
-				System.out.println(" ID      PW          Name         Phone");
+				System.out.println(" ID      PW          Name         address");
 				System.out.println("========================================");
 			
 				while(rs.next()){
