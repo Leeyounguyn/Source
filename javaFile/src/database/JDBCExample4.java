@@ -21,30 +21,30 @@ public class JDBCExample4 {
 
 			//DB Connect
 			connection = DriverManager.getConnection(
-					"jdbc:mariadb://localhost:3306/management", "root", "******"); 
+					"jdbc:mariadb://localhost:3306/management", "root", "1234"); 
 			//How to connect with DB : jdbc: DBName://ip address port number , rootID , pw; 
 			
 			//select syntax execute
 			stml = connection.createStatement();  
 			
 			
-			 System.out.print("(1/2) ID to edit : ");
+			 System.out.print("(1/2) 수정 ID : ");
              String ei = sc.nextLine();
               
-             System.out.print("(2/2) Contents to edit (ex : PW='1234', " +
-                     "Name ='', Address='2') : ");
+             System.out.print("(2/2) 수정내용(예 : PW='1234', " +
+                     "Name ='홍바꿈', Address='2') : ");
              String ev = sc.nextLine();
               
          
-             //r = stml.executeUpdate("UPDATE members SET C_PW ='1234'"); Change whole
-		    //r = stml.executeUpdate("UPDATE members SET C_PW ='1234' WHERE C_ID = 'Park'");    
-			//UPDATE table Name SET  Column Name = value to change condition
+             //r = stml.executeUpdate("UPDATE members SET C_PW ='1234'"); 전체를 바꾸는 것은 쉽게 된다.
+			//r = stml.executeUpdate("UPDATE members SET C_PW ='1234' WHERE C_ID = 'Park'"); 하나를 바꾸는것   
+			
 			r = stml.executeUpdate("UPDATE members SET C_"+ ev +" WHERE C_ID = '"+ei+"'");  
 			
              if( r == 0 ){
-                 System.out.println("Could not find what to edit.");
+                 System.out.println("수정 할  내용을 찾을 수 없습니다.");
              }else{
-                 System.out.println("It is changed. ");
+                 System.out.println("수정 되었습니다.");
              }
 
              sc.close();

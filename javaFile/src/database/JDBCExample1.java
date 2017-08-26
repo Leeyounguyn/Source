@@ -25,7 +25,7 @@ public class JDBCExample1 {
 			//select syntax execute
 			stml = connection.createStatement();  
 
-			ResultSet rs = stml.executeQuery("select C_ID, C_PW, C_Name, C_Address from members");
+			ResultSet rs = stml.executeQuery("select C_ID, C_PW from members");
 			
 				System.out.println("ID      PW          Name      Address");
 				System.out.println("======================================================");
@@ -33,11 +33,8 @@ public class JDBCExample1 {
 				while(rs.next()){
 					String b_ID    = rs.getString("C_ID");
 					String b_Pw    = rs.getString("C_PW");
-					String b_Name  = rs.getString("C_Name");
-					String b_address = rs.getString("C_Address");
 				
-					System.out.printf("%s    %6s    %5s       %5s\n", b_ID, b_Pw, b_Name, b_address);	
-					
+					System.out.printf("%s      %6s\n", b_ID, b_Pw);	
 				}
 		
 		}catch(ClassNotFoundException | SQLException e){

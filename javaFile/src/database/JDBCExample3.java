@@ -1,4 +1,4 @@
-//JDBC delete   
+//JDBC Print 
 package database;
 
 import java.sql.Connection;
@@ -21,22 +21,20 @@ public class JDBCExample3 {
 
 			//DB Connect
 			connection = DriverManager.getConnection(
-					"jdbc:mariadb://localhost:3306/management", "root", "*******"); 
+					"jdbc:mariadb://localhost:3306/management", "root", "1234"); 
 			//How to connect with DB : jdbc: DBName://ip address port number , rootID , pw; 
 			
 			//select syntax execute
 			stml = connection.createStatement();  
 			
-			System.out.println("Please enter an ID to delete : ex) KIM ");
+			System.out.println("삭제할  ID을 입력하세요 : ex KIM ");
 			String cn = sc.nextLine();
-			
-			//"delete from members where Table name IN condition"
 			r = stml.executeUpdate("delete from members where C_ID IN ('" +cn +"')");
 			
 			if(r == 0) {
-				System.out.println("Could not find table to delete.");
+				System.out.println("삭제할 내용을 찾을수 없습니다.");
 			}else {
-				System.out.println("Deleted");
+				System.out.println("삭제되었습니다.");
 			}
 			
 			sc.close();
